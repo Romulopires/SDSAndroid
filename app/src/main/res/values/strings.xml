@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">SDSAndroid</string>
+    <string name="segunda">S</string>
+    <string name="terça">T</string>
+    <string name="quarta">Q</string>
+    <string name="quinta">Q</string>
+    <string name="sexta">S</string>
+    <string name="sabado">S</string>
+    <string name="manha">Manha</string>
+    <string name="tarde">Tarde</string>
+    <string name="noite">Noite</string>
+    <string name="horario">HORARIO</string>
+    <string name="_07_30_08_15">07:30/08:15</string>
+    <string name="_08_15_09_00">08:15/09:00</string>
+    <string name="intervalo">INTERVALO</string>
+    <string name="_09_15_10_00">09:15/10:00</string>
+    <string name="_10_00_10_45">10:00/10:45</string>
+    <string name="_10_45_11_30">10:45/11:30</string>
+
+    <string-array name="brew_array">
+        <item>Cappuccino</item>
+        <item>Espresso</item>
+        <item>Mocha</item>
+        <item>Caffè Americano</item>
+        <item>Cafe Zorro</item>
+    </string-array>
+</resources>
