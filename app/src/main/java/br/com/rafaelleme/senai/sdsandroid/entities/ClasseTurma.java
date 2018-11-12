@@ -1,19 +1,13 @@
 package br.com.rafaelleme.senai.sdsandroid.entities;
 
-public class ClasseGenerica {
-
+public class ClasseTurma {
     private Integer id;
     private String nome;
 
-    public ClasseGenerica() {
+    public ClasseTurma() {
 
     }
 
-
-    @Override
-    public String toString() {
-        return nome;
-    }
 
     public Integer getId() {
         return id;
