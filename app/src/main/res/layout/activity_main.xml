@@ -13,10 +13,15 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="255dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="252dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -68,17 +73,12 @@
         android:id="@+id/spinner"
         android:layout_width="60dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TableLayout
@@ -106,8 +106,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#787474"
                 android:gravity="center"
                 android:text="@string/horario"
@@ -115,8 +115,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cdcdd4"
                 android:gravity="center"
                 android:text="@string/segunda"
@@ -124,8 +124,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text="@string/terça"
@@ -133,8 +133,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ccccd3"
                 android:gravity="center"
                 android:text="@string/quarta"
@@ -143,8 +143,8 @@
             <TextView
 
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text="@string/quinta"
@@ -152,8 +152,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cbcbd2"
                 android:gravity="center"
                 android:text="@string/sexta"
@@ -161,8 +161,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text="@string/sabado"
@@ -177,8 +177,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text="@string/_07_30_08_15"
@@ -186,8 +186,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cdcdd4"
                 android:gravity="center"
                 android:text=""
@@ -195,8 +195,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -204,8 +204,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ccccd3"
                 android:gravity="center"
                 android:text=""
@@ -214,8 +214,8 @@
             <TextView
 
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text=""
@@ -223,8 +223,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cbcbd2"
                 android:gravity="center"
                 android:text=""
@@ -232,8 +232,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -248,8 +248,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text="@string/_08_15_09_00"
@@ -257,8 +257,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cdcdd4"
                 android:gravity="center"
                 android:text=""
@@ -266,8 +266,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -275,8 +275,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ccccd3"
                 android:gravity="center"
                 android:text=""
@@ -284,8 +284,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text=""
@@ -293,8 +293,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cbcbd2"
                 android:gravity="center"
                 android:text=""
@@ -302,8 +302,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -318,8 +318,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#787474"
                 android:gravity="center"
                 android:text="@string/intervalo"
@@ -327,8 +327,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#FF787474"
                 android:gravity="center"
                 android:text=""
@@ -336,8 +336,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#FF787474"
                 android:gravity="center"
                 android:text=""
@@ -345,8 +345,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#FF787474"
                 android:gravity="center"
                 android:text=""
@@ -355,8 +355,8 @@
             <TextView
 
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#FF787474"
                 android:gravity="center"
                 android:text=""
@@ -364,8 +364,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#FF787474"
                 android:gravity="center"
                 android:text=""
@@ -373,8 +373,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#FF787474"
                 android:gravity="center"
                 android:text=""
@@ -389,8 +389,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text="@string/_09_15_10_00"
@@ -398,8 +398,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cdcdd4"
                 android:gravity="center"
                 android:text=""
@@ -407,8 +407,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -416,8 +416,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ccccd3"
                 android:gravity="center"
                 android:text=""
@@ -426,8 +426,8 @@
             <TextView
 
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text=""
@@ -435,8 +435,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cbcbd2"
                 android:gravity="center"
                 android:text=""
@@ -444,8 +444,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -460,8 +460,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text="@string/_10_00_10_45"
@@ -469,8 +469,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cdcdd4"
                 android:gravity="center"
                 android:text=""
@@ -478,8 +478,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -487,8 +487,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ccccd3"
                 android:gravity="center"
                 android:text=""
@@ -497,8 +497,8 @@
             <TextView
 
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text=""
@@ -506,8 +506,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cbcbd2"
                 android:gravity="center"
                 android:text=""
@@ -515,8 +515,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -531,8 +531,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text="@string/_10_45_11_30"
@@ -540,8 +540,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cdcdd4"
                 android:gravity="center"
                 android:text=""
@@ -549,8 +549,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -558,8 +558,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ccccd3"
                 android:gravity="center"
                 android:text=""
@@ -568,8 +568,8 @@
             <TextView
 
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#fff"
                 android:gravity="center"
                 android:text=""
@@ -577,8 +577,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#cbcbd2"
                 android:gravity="center"
                 android:text=""
@@ -586,8 +586,8 @@
 
             <TextView
 
+                android:layout_height="32dp"
                 android:layout_weight="1"
-                android:layout_height="30dp"
                 android:background="#ffffff"
                 android:gravity="center"
                 android:text=""
@@ -599,40 +599,32 @@
         android:id="@+id/spinner3"
         android:layout_width="60dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47"
-        tools:layout_editor_absoluteX="337dp" />
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="Curso:"
-        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
         app:layout_constraintEnd_toStartOf="@+id/spinner3"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="Professor"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintStart_toEndOf="@+id/spinner3"
+        app:layout_constraintEnd_toStartOf="@+id/spinner"
         app:layout_constraintTop_toTopOf="parent" />
 
 
