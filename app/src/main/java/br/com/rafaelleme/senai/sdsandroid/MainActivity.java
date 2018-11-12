@@ -11,7 +11,9 @@ import java.util.List;
 
 import br.com.rafaelleme.senai.sdsandroid.Util.RetrofitInstance;
 import br.com.rafaelleme.senai.sdsandroid.entities.ClasseGenerica;
+import br.com.rafaelleme.senai.sdsandroid.entities.ClasseTurma;
 import br.com.rafaelleme.senai.sdsandroid.service.ProfessorService;
+import br.com.rafaelleme.senai.sdsandroid.service.TurmaService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,6 +22,7 @@ import retrofit2.Retrofit;
 public class MainActivity extends AppCompatActivity {
 
     Spinner spinner;
+    Spinner spinner2;
     Retrofit retrofit;
 
     @Override
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         retrofit = RetrofitInstance.getInstance();
 
         spinner = findViewById(R.id.spinner);
+        spinner2 = findViewById(R.id.spinner3);
 
         ProfessorService professorService = retrofit.create(ProfessorService.class);
         Call<List<ClasseGenerica>> buscaProfessor = professorService.getNomes();
@@ -56,6 +60,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        TurmaService turmaService = retrofit.create(TurmaService.class);
+        Call<List<ClasseTurma>> buscaTurma = turmaService.getTurmaNome();
+        buscaTurma.enqueue(new Callback<List<ClasseTurma>>() {
+            @Override
+            public void onResponse(Call<List<ClasseTurma>> call, Response<List<ClasseTurma>> response) {
+                if (response.isSuccessful()){
+                    List<ClasseTurma> resposta = response.body();
+
+                    List<String> lista = new ArrayList<>();
+                    for (ClasseTurma c : resposta){
+                        lista.add(c.getNome());
+                    }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, lista);
+                    adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
+                    spinner2.setAdapter(adapter);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ClasseTurma>> call, Throwable t) {
+                Toast.makeText(MainActivity.this, t.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 }
