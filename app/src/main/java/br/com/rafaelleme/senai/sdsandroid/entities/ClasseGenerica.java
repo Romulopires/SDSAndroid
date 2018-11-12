@@ -9,6 +9,12 @@ public class ClasseGenerica {
 
     }
 
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+
     public Integer getId() {
         return id;
     }
