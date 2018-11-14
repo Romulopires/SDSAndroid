@@ -51,6 +51,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                ClasseTurma cg = (ClasseTurma) spinner.getSelectedItem();
+                Log.i("Teste",cg.getId().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         ProfessorService professorService = retrofit.create(ProfessorService.class);
         Call<List<ClasseGenerica>> buscaProfessor = professorService.getNomes();
         buscaProfessor.enqueue(new Callback<List<ClasseGenerica>>() {
@@ -92,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     for (ClasseTurma c : resposta){
                         lista.add(c.getNome());
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, lista);
+                    ArrayAdapter<ClasseTurma> adapter = new ArrayAdapter<ClasseTurma>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseTurma[resposta.size()]));
                     adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
                     spinner2.setAdapter(adapter);

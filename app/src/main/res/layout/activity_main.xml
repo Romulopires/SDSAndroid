@@ -11,22 +11,10 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
-    <ImageView
-        android:layout_width="286dp"
-        android:layout_height="41dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:src="@drawable/senai"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="252dp"
+        android:layout_width="253dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -86,16 +74,16 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:layout_editor_absoluteY="8dp">
 
 
         <Spinner
             android:id="@+id/spinnerTurma"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="96dp"
             android:layout_height="30dp"
+            android:layout_weight="1"
             app:layout_constraintWidth_percent="50"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="64dp" />
@@ -104,8 +92,8 @@
             android:id="@+id/spinnerProfessor"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:visibility="visible"
             android:layout_weight="3"
+            android:visibility="visible"
             app:layout_constraintWidth_percent="50"
             tools:layout_editor_absoluteX="536dp"
             tools:layout_editor_absoluteY="64dp" />
@@ -116,23 +104,20 @@
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="252dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+
         android:shrinkColumns="*"
         android:stretchColumns="*"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.0">
-=======
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
->>>>>>> a05ee4a611d4a6cd3a29c3ad28b125c4dc6b9163
 
 
         <TableRow
