@@ -208,7 +208,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/s1"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cdcdd4"
@@ -217,7 +217,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/t1"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -226,7 +226,7 @@
                 android:textColor="#bb1a1a" />
 
             <TextView
-
+                android:id="@+id/q1"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ccccd3"
@@ -235,7 +235,7 @@
                 android:textColor="#ba1a1a" />
 
             <TextView
-
+                android:id="@+id/qi1"
 
                 android:layout_height="32dp"
                 android:layout_weight="1"
@@ -245,7 +245,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/sx1"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cbcbd2"
@@ -254,7 +254,7 @@
                 android:textColor="#b81a1a" />
 
             <TextView
-
+                android:id="@+id/sa1"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -279,7 +279,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/s2"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cdcdd4"
@@ -288,7 +288,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/t2"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -297,7 +297,7 @@
                 android:textColor="#bb1a1a" />
 
             <TextView
-
+                android:id="@+id/q2"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ccccd3"
@@ -306,7 +306,7 @@
                 android:textColor="#ba1a1a" />
 
             <TextView
-
+                android:id="@+id/qi2"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#fff"
@@ -315,7 +315,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/sx2"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cbcbd2"
@@ -324,7 +324,7 @@
                 android:textColor="#b81a1a" />
 
             <TextView
-
+                android:id="@+id/sa2"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -420,7 +420,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/s3"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cdcdd4"
@@ -429,7 +429,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/t3"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -438,7 +438,7 @@
                 android:textColor="#bb1a1a" />
 
             <TextView
-
+                android:id="@+id/q3"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ccccd3"
@@ -447,7 +447,7 @@
                 android:textColor="#ba1a1a" />
 
             <TextView
-
+                android:id="@+id/qi3"
 
                 android:layout_height="32dp"
                 android:layout_weight="1"
@@ -457,7 +457,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/sx3"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cbcbd2"
@@ -466,7 +466,7 @@
                 android:textColor="#b81a1a" />
 
             <TextView
-
+                android:id="@+id/sa3"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -491,7 +491,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/s4"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cdcdd4"
@@ -500,7 +500,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/t4"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -509,7 +509,7 @@
                 android:textColor="#bb1a1a" />
 
             <TextView
-
+                android:id="@+id/q4"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ccccd3"
@@ -518,7 +518,7 @@
                 android:textColor="#ba1a1a" />
 
             <TextView
-
+                android:id="@+id/qi4"
 
                 android:layout_height="32dp"
                 android:layout_weight="1"
@@ -528,7 +528,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/sx4"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cbcbd2"
@@ -537,7 +537,7 @@
                 android:textColor="#b81a1a" />
 
             <TextView
-
+                android:id="@+id/sa4"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -562,7 +562,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/s5"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cdcdd4"
@@ -571,7 +571,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/t5"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
@@ -580,7 +580,7 @@
                 android:textColor="#bb1a1a" />
 
             <TextView
-
+                android:id="@+id/q5"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ccccd3"
@@ -589,7 +589,7 @@
                 android:textColor="#ba1a1a" />
 
             <TextView
-
+                android:id="@+id/qi5"
 
                 android:layout_height="32dp"
                 android:layout_weight="1"
@@ -599,7 +599,7 @@
                 android:textColor="#bc1a1a" />
 
             <TextView
-
+                android:id="@+id/sx5"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#cbcbd2"
@@ -608,7 +608,7 @@
                 android:textColor="#b81a1a" />
 
             <TextView
-
+                android:id="@+id/sa5"
                 android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#ffffff"
