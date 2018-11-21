@@ -9,6 +9,10 @@ public class ClasseGenerica {
 
     }
 
+    public ClasseGenerica(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
 
     @Override
     public String toString() {

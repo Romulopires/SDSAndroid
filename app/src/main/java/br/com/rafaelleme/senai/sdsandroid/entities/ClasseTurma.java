@@ -8,6 +8,11 @@ public class ClasseTurma {
 
     }
 
+    public ClasseTurma(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     @Override
     public String toString() {
         return nome;

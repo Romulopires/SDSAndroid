@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                ClasseTurma cg = (ClasseTurma) spinner.getSelectedItem();
+                ClasseGenerica cg = (ClasseGenerica) spinner.getSelectedItem();
                 Log.i("Teste", cg.getId().toString());
             }
 
@@ -195,12 +195,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<ClasseGenerica>> call, Response<List<ClasseGenerica>> response) {
                 if (response.isSuccessful()) {
                     List<ClasseGenerica> resposta = response.body();
+                    resposta.add(0,new ClasseGenerica(0,"Selecione"));
 
-                    List<String> lista = new ArrayList<>();
-                    lista.add("Selecione");
-                    for (ClasseGenerica c : resposta) {
-                        lista.add(c.getNome());
-                    }
                     ArrayAdapter<ClasseGenerica> adapter = new ArrayAdapter<ClasseGenerica>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseGenerica[resposta.size()]));
                     adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
@@ -223,6 +219,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<ClasseTurma>> call, Response<List<ClasseTurma>> response) {
                 if (response.isSuccessful()) {
                     List<ClasseTurma> resposta = response.body();
+                    resposta.add(0,new ClasseTurma(0,"Selecione"));
 
                     List<String> lista = new ArrayList<>();
                     lista.add("Selecione");
