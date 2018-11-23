@@ -14,8 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.rafaelleme.senai.sdsandroid.Util.RetrofitInstance;
+import br.com.rafaelleme.senai.sdsandroid.entities.Aula;
 import br.com.rafaelleme.senai.sdsandroid.entities.ClasseGenerica;
 import br.com.rafaelleme.senai.sdsandroid.entities.ClasseTurma;
+import br.com.rafaelleme.senai.sdsandroid.entities.Filtro;
+import br.com.rafaelleme.senai.sdsandroid.service.AulaService;
 import br.com.rafaelleme.senai.sdsandroid.service.ProfessorService;
 import br.com.rafaelleme.senai.sdsandroid.service.TurmaService;
 import butterknife.BindView;
@@ -240,5 +243,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void pegarAula(Filtro filtro){
+        AulaService aulaService = RetrofitInstance.getInstance().create(AulaService.class);
+
+        Call<Aula> pegaAula = aulaService.buscaAula(filtro);
+
+        pegaAula.enqueue(new Callback<Aula>() {
+            @Override
+            public void onResponse(Call<Aula> call, Response<Aula> response) {
+                if(response.isSuccessful()){
+                    Aula a = response.body();
+
+                    if(a != null){
+
+                    }
+                }else{
+                    mens("Não conectamos ao serviço, tente novamente !");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Aula> call, Throwable t) {
+                mens(t.toString());
+            }
+        });
+    }
+
+    private void mens(String s){
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 }
