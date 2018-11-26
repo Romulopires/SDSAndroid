@@ -30,8 +30,8 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    Spinner spinner;
-    Spinner spinner2;
+    Spinner spinnerTurma;
+    Spinner spinnerProf;
     Retrofit retrofit;
 
 
@@ -160,14 +160,14 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        spinner = findViewById(R.id.spinnerTurma);
-        spinner2 = findViewById(R.id.spinnerProfessor);
+        spinnerTurma = findViewById(R.id.spinnerTurma);
+        spinnerProf = findViewById(R.id.spinnerProfessor);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerTurma.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                ClasseGenerica cg = (ClasseGenerica) spinner.getSelectedItem();
+                ClasseGenerica cg = (ClasseGenerica) spinnerTurma.getSelectedItem();
                 Log.i("Teste", cg.getId().toString());
             }
 
@@ -177,12 +177,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                ClasseGenerica cg = (ClasseGenerica) spinner.getSelectedItem();
+                ClasseGenerica cg = (ClasseGenerica) spinnerProf.getSelectedItem();
                 Log.i("Teste", cg.getId().toString());
+               // pegarAula(filtro,s1);
             }
 
             @Override
@@ -203,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
                     ArrayAdapter<ClasseGenerica> adapter = new ArrayAdapter<ClasseGenerica>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseGenerica[resposta.size()]));
                     adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
-                    spinner.setAdapter(adapter);
+                    spinnerTurma.setAdapter(adapter);
 
                 }
             }
@@ -232,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                     ArrayAdapter<ClasseTurma> adapter = new ArrayAdapter<ClasseTurma>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseTurma[resposta.size()]));
                     adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
-                    spinner2.setAdapter(adapter);
+                    spinnerProf.setAdapter(adapter);
 
                 }
             }
@@ -257,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
                     Aula a = response.body();
 
                     if(a != null){
-
+                        
                     }
                 }else{
                     mens("Não conectamos ao serviço, tente novamente !");
