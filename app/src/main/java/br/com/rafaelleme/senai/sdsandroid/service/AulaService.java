@@ -8,6 +8,6 @@ import retrofit2.http.POST;
 
 public interface AulaService {
 
-    @POST("aula/aula")
+    @POST("aula/por-filtro")
     Call<Aula> buscaAula(@Body Filtro filtro);
 }

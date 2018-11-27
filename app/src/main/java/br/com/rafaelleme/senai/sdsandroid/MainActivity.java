@@ -6,9 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,15 +145,11 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.sa5)
     TextView sa5;
 
+    @BindView(R.id.radioGroup)
+    RadioGroup radioGroup;
 
 
-
-
-
-
-
-
-
+    Integer periodo;
 
 
     @Override
@@ -162,6 +162,18 @@ public class MainActivity extends AppCompatActivity {
 
         spinnerTurma = findViewById(R.id.spinnerTurma);
         spinnerProf = findViewById(R.id.spinnerProfessor);
+
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rdManha:
+                        periodo = 1;
+                        break;
+                }
+            }
+        });
 
         spinnerTurma.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -180,10 +192,7 @@ public class MainActivity extends AppCompatActivity {
         spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                ClasseGenerica cg = (ClasseGenerica) spinnerProf.getSelectedItem();
-                Log.i("Teste", cg.getId().toString());
-               // pegarAula(filtro,s1);
+                pegarAula(null, s1);
             }
 
             @Override
@@ -199,8 +208,37 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<ClasseGenerica>> call, Response<List<ClasseGenerica>> response) {
                 if (response.isSuccessful()) {
                     List<ClasseGenerica> resposta = response.body();
-                    resposta.add(0,new ClasseGenerica(0,"Selecione"));
+                    resposta.add(0, new ClasseGenerica(0, "Selecione"));
 
+                    ArrayAdapter<ClasseGenerica> adapter = new ArrayAdapter<ClasseGenerica>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseGenerica[resposta.size()]));
+                    adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
+                    spinnerProf.setAdapter(adapter);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ClasseGenerica>> call, Throwable t) {
+                Toast.makeText(MainActivity.this, t.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+        TurmaService turmaService = retrofit.create(TurmaService.class);
+        Call<List<ClasseGenerica>> buscaTurma = turmaService.getTurmaNome();
+        buscaTurma.enqueue(new Callback<List<ClasseGenerica>>() {
+            @Override
+            public void onResponse(Call<List<ClasseGenerica>> call, Response<List<ClasseGenerica>> response) {
+                if (response.isSuccessful()) {
+                    List<ClasseGenerica> resposta = response.body();
+                    resposta.add(0, new ClasseGenerica(0, "Selecione"));
+
+                    List<String> lista = new ArrayList<>();
+                    lista.add("Selecione");
+                    for (ClasseGenerica c : resposta) {
+                        lista.add(c.getNome());
+                    }
                     ArrayAdapter<ClasseGenerica> adapter = new ArrayAdapter<ClasseGenerica>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseGenerica[resposta.size()]));
                     adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
@@ -215,38 +253,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        TurmaService turmaService = retrofit.create(TurmaService.class);
-        Call<List<ClasseTurma>> buscaTurma = turmaService.getTurmaNome();
-        buscaTurma.enqueue(new Callback<List<ClasseTurma>>() {
-            @Override
-            public void onResponse(Call<List<ClasseTurma>> call, Response<List<ClasseTurma>> response) {
-                if (response.isSuccessful()) {
-                    List<ClasseTurma> resposta = response.body();
-                    resposta.add(0,new ClasseTurma(0,"Selecione"));
-
-                    List<String> lista = new ArrayList<>();
-                    lista.add("Selecione");
-                    for (ClasseTurma c : resposta) {
-                        lista.add(c.getNome());
-                    }
-                    ArrayAdapter<ClasseTurma> adapter = new ArrayAdapter<ClasseTurma>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseTurma[resposta.size()]));
-                    adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
-                    spinnerProf.setAdapter(adapter);
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<ClasseTurma>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-
     }
 
-    public void pegarAula(Filtro filtro){
+    public void pegarAula(Filtro filtro, final TextView textView) {
+        ClasseGenerica cg = (ClasseGenerica) spinnerProf.getSelectedItem();
+        Log.i("Teste", cg.getId().toString());
+        filtro = new Filtro();
+        filtro.setColaborador(cg.getId());
+        filtro.setDia_semana(1);
+        filtro.setPeriodo(periodo);
+
         AulaService aulaService = RetrofitInstance.getInstance().create(AulaService.class);
 
         Call<Aula> pegaAula = aulaService.buscaAula(filtro);
@@ -254,13 +270,13 @@ public class MainActivity extends AppCompatActivity {
         pegaAula.enqueue(new Callback<Aula>() {
             @Override
             public void onResponse(Call<Aula> call, Response<Aula> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Aula a = response.body();
 
-                    if(a != null){
-                        
+                    if (a != null) {
+                        textView.setText(a.getNomeDisciplina());
                     }
-                }else{
+                } else {
                     mens("Não conectamos ao serviço, tente novamente !");
                 }
             }
@@ -272,7 +288,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void mens(String s){
+    private void mens(String s) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
+
+
 }
