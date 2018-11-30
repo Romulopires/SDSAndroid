@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     Integer periodo;
+    Boolean professor,turma;
 
 
     @Override
@@ -181,11 +182,16 @@ public class MainActivity extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                spinnerProf.setEnabled(true);
                 spinnerTurma.setEnabled(true);
+                spinnerProf.setEnabled(true);
+
                 switch (checkedId) {
                     case R.id.rdManha:
                         periodo = 1;
+
+                       while(spinnerProf.getSelectedItem().toString() != "Selecione"){
+                           spinnerTurma.setEnabled(false);
+                       }
                         break;
 
                     case R.id.rdTarde:
