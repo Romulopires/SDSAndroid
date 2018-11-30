@@ -6,16 +6,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.rafaelleme.senai.sdsandroid.Util.RetrofitInstance;
+import br.com.rafaelleme.senai.sdsandroid.entities.Aula;
 import br.com.rafaelleme.senai.sdsandroid.entities.ClasseGenerica;
 import br.com.rafaelleme.senai.sdsandroid.entities.ClasseTurma;
+import br.com.rafaelleme.senai.sdsandroid.entities.Filtro;
+import br.com.rafaelleme.senai.sdsandroid.service.AulaService;
 import br.com.rafaelleme.senai.sdsandroid.service.ProfessorService;
 import br.com.rafaelleme.senai.sdsandroid.service.TurmaService;
 import butterknife.BindView;
@@ -27,8 +34,8 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    Spinner spinner;
-    Spinner spinner2;
+    Spinner spinnerTurma;
+    Spinner spinnerProf;
     Retrofit retrofit;
 
 
@@ -138,15 +145,11 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.sa5)
     TextView sa5;
 
+    @BindView(R.id.radioGroup)
+    RadioGroup radioGroup;
 
 
-
-
-
-
-
-
-
+    Integer periodo;
 
 
     @Override
@@ -157,14 +160,26 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        spinner = findViewById(R.id.spinnerTurma);
-        spinner2 = findViewById(R.id.spinnerProfessor);
+        spinnerTurma = findViewById(R.id.spinnerTurma);
+        spinnerProf = findViewById(R.id.spinnerProfessor);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rdManha:
+                        periodo = 1;
+                        break;
+                }
+            }
+        });
+
+        spinnerTurma.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                ClasseGenerica cg = (ClasseGenerica) spinner.getSelectedItem();
+                ClasseGenerica cg = (ClasseGenerica) spinnerTurma.getSelectedItem();
                 Log.i("Teste", cg.getId().toString());
             }
 
@@ -174,12 +189,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                ClasseGenerica cg = (ClasseGenerica) spinner.getSelectedItem();
-                Log.i("Teste", cg.getId().toString());
+                pegarAula(null, s1);
             }
 
             @Override
@@ -195,12 +208,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<ClasseGenerica>> call, Response<List<ClasseGenerica>> response) {
                 if (response.isSuccessful()) {
                     List<ClasseGenerica> resposta = response.body();
-                    resposta.add(0,new ClasseGenerica(0,"Selecione"));
+                    resposta.add(0, new ClasseGenerica(0, "Selecione"));
 
                     ArrayAdapter<ClasseGenerica> adapter = new ArrayAdapter<ClasseGenerica>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseGenerica[resposta.size()]));
                     adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
-                    spinner.setAdapter(adapter);
+                    spinnerProf.setAdapter(adapter);
 
                 }
             }
@@ -213,32 +226,71 @@ public class MainActivity extends AppCompatActivity {
 
 
         TurmaService turmaService = retrofit.create(TurmaService.class);
-        Call<List<ClasseTurma>> buscaTurma = turmaService.getTurmaNome();
-        buscaTurma.enqueue(new Callback<List<ClasseTurma>>() {
+        Call<List<ClasseGenerica>> buscaTurma = turmaService.getTurmaNome();
+        buscaTurma.enqueue(new Callback<List<ClasseGenerica>>() {
             @Override
-            public void onResponse(Call<List<ClasseTurma>> call, Response<List<ClasseTurma>> response) {
+            public void onResponse(Call<List<ClasseGenerica>> call, Response<List<ClasseGenerica>> response) {
                 if (response.isSuccessful()) {
-                    List<ClasseTurma> resposta = response.body();
-                    resposta.add(0,new ClasseTurma(0,"Selecione"));
+                    List<ClasseGenerica> resposta = response.body();
+                    resposta.add(0, new ClasseGenerica(0, "Selecione"));
 
                     List<String> lista = new ArrayList<>();
                     lista.add("Selecione");
-                    for (ClasseTurma c : resposta) {
+                    for (ClasseGenerica c : resposta) {
                         lista.add(c.getNome());
                     }
-                    ArrayAdapter<ClasseTurma> adapter = new ArrayAdapter<ClasseTurma>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseTurma[resposta.size()]));
+                    ArrayAdapter<ClasseGenerica> adapter = new ArrayAdapter<ClasseGenerica>(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, resposta.toArray(new ClasseGenerica[resposta.size()]));
                     adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
-                    spinner2.setAdapter(adapter);
+                    spinnerTurma.setAdapter(adapter);
 
                 }
             }
 
             @Override
-            public void onFailure(Call<List<ClasseTurma>> call, Throwable t) {
+            public void onFailure(Call<List<ClasseGenerica>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, t.toString(), Toast.LENGTH_LONG).show();
             }
         });
 
     }
+
+    public void pegarAula(Filtro filtro, final TextView textView) {
+        ClasseGenerica cg = (ClasseGenerica) spinnerProf.getSelectedItem();
+        Log.i("Teste", cg.getId().toString());
+        filtro = new Filtro();
+        filtro.setColaborador(cg.getId());
+        filtro.setDia_semana(1);
+        filtro.setPeriodo(periodo);
+
+        AulaService aulaService = RetrofitInstance.getInstance().create(AulaService.class);
+
+        Call<Aula> pegaAula = aulaService.buscaAula(filtro);
+
+        pegaAula.enqueue(new Callback<Aula>() {
+            @Override
+            public void onResponse(Call<Aula> call, Response<Aula> response) {
+                if (response.isSuccessful()) {
+                    Aula a = response.body();
+
+                    if (a != null) {
+                        textView.setText(a.getNomeDisciplina());
+                    }
+                } else {
+                    mens("Não conectamos ao serviço, tente novamente !");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Aula> call, Throwable t) {
+                mens(t.toString());
+            }
+        });
+    }
+
+    private void mens(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+    }
+
+
 }
