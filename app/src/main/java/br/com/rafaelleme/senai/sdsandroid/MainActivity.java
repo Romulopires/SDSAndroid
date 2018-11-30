@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     Retrofit retrofit;
 
 
+
+
+
     @BindView(R.id.s1)
     TextView s1;
 
@@ -148,6 +151,15 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.radioGroup)
     RadioGroup radioGroup;
 
+    @BindView(R.id.rdManha)
+            RadioButton rdmanha;
+
+    @BindView(R.id.rdTarde)
+            RadioButton rdTarde;
+
+@BindView(R.id.rdNoite)
+        RadioButton rdNoite;
+
 
     Integer periodo;
 
@@ -161,15 +173,27 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         spinnerTurma = findViewById(R.id.spinnerTurma);
-        spinnerProf = findViewById(R.id.spinnerProfessor);
+        spinnerTurma.setEnabled(false);
 
+        spinnerProf = findViewById(R.id.spinnerProfessor);
+        spinnerProf.setEnabled(false);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                spinnerProf.setEnabled(true);
+                spinnerTurma.setEnabled(true);
                 switch (checkedId) {
                     case R.id.rdManha:
                         periodo = 1;
+                        break;
+
+                    case R.id.rdTarde:
+                        periodo = 2;
+                        break;
+
+                    case R.id.rdNoite:
+                        periodo = 3;
                         break;
                 }
             }
@@ -292,5 +316,14 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 
-
+   /* public boolean preenchido(){
+        if (rdmanha != null || rdTarde != null || rdNoite != null){
+            spinnerProf.setEnabled(true);
+            spinnerTurma.setEnabled(true);
+            return true;
+        }
+        else {
+            return false;
+        }
+    } */
 }
