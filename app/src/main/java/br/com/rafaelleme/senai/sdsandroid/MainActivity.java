@@ -222,7 +222,50 @@ public class MainActivity extends AppCompatActivity {
         spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pegarAula(null, s1);
+                Filtro filtro = new Filtro();
+                filtro.setPeriodo(periodo);
+                filtro.setDia_semana(1);
+                filtro.setColaborador((int) id);
+                pegarAula(filtro, s1);
+                pegarAula(filtro, s2);
+                pegarAula(filtro, s3);
+                pegarAula(filtro, s4);
+                pegarAula(filtro, s5);
+
+                filtro.setDia_semana(2);
+                pegarAula(filtro, t1);
+                pegarAula(filtro, t2);
+                pegarAula(filtro, t3);
+                pegarAula(filtro, t4);
+                pegarAula(filtro, t5);
+
+                filtro.setDia_semana(3);
+                pegarAula(filtro, q1);
+                pegarAula(filtro, q2);
+                pegarAula(filtro, q3);
+                pegarAula(filtro, q4);
+                pegarAula(filtro, q5);
+
+                filtro.setDia_semana(4);
+                pegarAula(filtro, qi1);
+                pegarAula(filtro, qi2);
+                pegarAula(filtro, qi3);
+                pegarAula(filtro, qi4);
+                pegarAula(filtro, qi5);
+
+                filtro.setDia_semana(5);
+                pegarAula(filtro, sx1);
+                pegarAula(filtro, sx2);
+                pegarAula(filtro, sx3);
+                pegarAula(filtro, sx4);
+                pegarAula(filtro, sx5);
+
+                filtro.setDia_semana(6);
+                pegarAula(filtro, sa1);
+                pegarAula(filtro, sa2);
+                pegarAula(filtro, sa3);
+                pegarAula(filtro, sa4);
+                pegarAula(filtro, sa5);
             }
 
             @Override
