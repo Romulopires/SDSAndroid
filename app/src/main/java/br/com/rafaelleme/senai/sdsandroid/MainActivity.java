@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinnerTurma;
     Spinner spinnerProf;
     Retrofit retrofit;
+    ViewGroup tb;
 
 
 
@@ -222,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
         spinnerProf.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                limpar(tb);
                 Filtro filtro = new Filtro();
                 filtro.setPeriodo(periodo);
                 filtro.setDia_semana(1);
@@ -331,10 +334,6 @@ public class MainActivity extends AppCompatActivity {
     public void pegarAula(Filtro filtro, final TextView textView) {
         ClasseGenerica cg = (ClasseGenerica) spinnerProf.getSelectedItem();
         Log.i("Teste", cg.getId().toString());
-        filtro = new Filtro();
-        filtro.setColaborador(cg.getId());
-        filtro.setDia_semana(1);
-        filtro.setPeriodo(periodo);
 
         AulaService aulaService = RetrofitInstance.getInstance().create(AulaService.class);
 
@@ -363,6 +362,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void mens(String s) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+    }
+
+    private void limpar(ViewGroup tb){
+
+            int count = tb.getChildCount();
+            for (int i=0; i < count; i++){
+                View view = tb.getChildAt(i);
+                if (view instanceof ViewGroup){
+                    limpar((ViewGroup)view);
+                    continue;
+                }
+                if (view instanceof TextView){
+                    if (!(((TextView)view).getTag()!=null && ((TextView)view).getTag().equals("h1"))){
+                        ((TextView)view).setText("");
+                        continue;
+                    }
+                }
+            }
     }
 
    /* public boolean preenchido(){

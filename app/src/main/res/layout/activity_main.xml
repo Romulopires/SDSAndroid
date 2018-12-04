@@ -141,7 +141,7 @@
 
 
             <TableRow
-
+                android:id="@+id/tb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="2dp">
@@ -154,7 +154,8 @@
                     android:background="#787474"
                     android:gravity="center"
                     android:text="@string/horario"
-                    android:textColor="#000" />
+                    android:textColor="#000"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -163,7 +164,8 @@
                     android:background="#cdcdd4"
                     android:gravity="center"
                     android:text="@string/segunda"
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -172,7 +174,8 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="@string/terça"
-                    android:textColor="#bb1a1a" />
+                    android:textColor="#bb1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -181,7 +184,8 @@
                     android:background="#ccccd3"
                     android:gravity="center"
                     android:text="@string/quarta"
-                    android:textColor="#ba1a1a" />
+                    android:textColor="#ba1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -191,7 +195,8 @@
                     android:background="#fff"
                     android:gravity="center"
                     android:text="@string/quinta"
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -200,7 +205,8 @@
                     android:background="#cbcbd2"
                     android:gravity="center"
                     android:text="@string/sexta"
-                    android:textColor="#b81a1a" />
+                    android:textColor="#b81a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -209,7 +215,8 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="@string/sabado"
-                    android:textColor="#b71a1a" />
+                    android:textColor="#b71a1a"
+                    android:tag="h1"/>
             </TableRow>
 
             <TableRow
@@ -225,7 +232,8 @@
                     android:background="#fff"
                     android:gravity="center"
                     android:text="@string/_07_30_08_15"
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
                     android:id="@+id/s1"
@@ -296,7 +304,8 @@
                     android:background="#fff"
                     android:gravity="center"
                     android:text="@string/_08_15_09_00"
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
                     android:id="@+id/s2"
@@ -366,7 +375,8 @@
                     android:background="#787474"
                     android:gravity="center"
                     android:text="@string/intervalo"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -375,7 +385,8 @@
                     android:background="#FF787474"
                     android:gravity="center"
                     android:text=""
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -384,7 +395,8 @@
                     android:background="#FF787474"
                     android:gravity="center"
                     android:text=""
-                    android:textColor="#bb1a1a" />
+                    android:textColor="#bb1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -393,7 +405,8 @@
                     android:background="#FF787474"
                     android:gravity="center"
                     android:text=""
-                    android:textColor="#ba1a1a" />
+                    android:textColor="#ba1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -403,7 +416,8 @@
                     android:background="#FF787474"
                     android:gravity="center"
                     android:text=""
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -412,7 +426,8 @@
                     android:background="#FF787474"
                     android:gravity="center"
                     android:text=""
-                    android:textColor="#b81a1a" />
+                    android:textColor="#b81a1a"
+                    android:tag="h1"/>
 
                 <TextView
 
@@ -421,7 +436,8 @@
                     android:background="#FF787474"
                     android:gravity="center"
                     android:text=""
-                    android:textColor="#b71a1a" />
+                    android:textColor="#b71a1a"
+                    android:tag="h1"/>
             </TableRow>
 
             <TableRow
@@ -437,7 +453,8 @@
                     android:background="#fff"
                     android:gravity="center"
                     android:text="@string/_09_15_10_00"
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
                     android:id="@+id/s3"
@@ -508,7 +525,8 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="@string/_10_00_10_45"
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
                     android:id="@+id/s4"
@@ -579,7 +597,8 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="@string/_10_45_11_30"
-                    android:textColor="#bc1a1a" />
+                    android:textColor="#bc1a1a"
+                    android:tag="h1"/>
 
                 <TextView
                     android:id="@+id/s5"
