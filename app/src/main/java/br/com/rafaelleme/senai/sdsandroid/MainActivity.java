@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,11 +39,9 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinnerTurma;
     Spinner spinnerProf;
     Retrofit retrofit;
-    ViewGroup tb;
 
-
-
-
+    @BindView(R.id.tableLayout)
+    TableLayout tb;
 
     @BindView(R.id.s1)
     TextView s1;
@@ -154,17 +153,17 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
 
     @BindView(R.id.rdManha)
-            RadioButton rdmanha;
+    RadioButton rdmanha;
 
     @BindView(R.id.rdTarde)
-            RadioButton rdTarde;
+    RadioButton rdTarde;
 
-@BindView(R.id.rdNoite)
-        RadioButton rdNoite;
+    @BindView(R.id.rdNoite)
+    RadioButton rdNoite;
 
 
     Integer periodo;
-    Boolean professor,turma;
+    Boolean professor, turma;
 
 
     @Override
@@ -191,9 +190,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.rdManha:
                         periodo = 1;
 
-                       while(spinnerProf.getSelectedItem().toString() != "Selecione"){
-                           spinnerTurma.setEnabled(false);
-                       }
+                        spinnerTurma.setEnabled(false);
                         break;
 
                     case R.id.rdTarde:
@@ -364,22 +361,22 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 
-    private void limpar(ViewGroup tb){
+    private void limpar(ViewGroup tb) {
 
-            int count = tb.getChildCount();
-            for (int i=0; i < count; i++){
-                View view = tb.getChildAt(i);
-                if (view instanceof ViewGroup){
-                    limpar((ViewGroup)view);
+        int count = tb.getChildCount();
+        for (int i = 0; i < count; i++) {
+            View view = tb.getChildAt(i);
+            if (view instanceof ViewGroup) {
+                limpar((ViewGroup) view);
+                continue;
+            }
+            if (view instanceof TextView) {
+                if (!(((TextView) view).getTag() != null && ((TextView) view).getTag().equals("h1"))) {
+                    ((TextView) view).setText("");
                     continue;
                 }
-                if (view instanceof TextView){
-                    if (!(((TextView)view).getTag()!=null && ((TextView)view).getTag().equals("h1"))){
-                        ((TextView)view).setText("");
-                        continue;
-                    }
-                }
             }
+        }
     }
 
    /* public boolean preenchido(){
