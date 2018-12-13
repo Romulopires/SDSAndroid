@@ -9,17 +9,23 @@ public class Aula {
     private String nomeCurso;
     private String nomeTurma;
     private String nomeDisciplina;
+    private String nomeProfessor;
 
     public Aula() {
         // TODO Auto-generated constructor stub
     }
 
-    public Aula( String curso, String turma, String disciplina, Integer id_sala) {
+    public Aula(String curso, String turma, String disciplina, Integer id_sala, String nomeCurso, String nomeTurma,
+                 String nomeDisciplina, String nomeProfessor) {
         super();
         this.curso = curso;
         this.turma = turma;
         this.disciplina = disciplina;
         this.id_sala = id_sala;
+        this.nomeCurso = nomeCurso;
+        this.nomeTurma = nomeTurma;
+        this.nomeDisciplina = nomeDisciplina;
+        this.nomeProfessor = nomeProfessor;
     }
 
     public String getCurso() {
@@ -76,5 +82,13 @@ public class Aula {
 
     public void setNomeDisciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
+    }
+
+    public String getNomeProfessor() {
+        return nomeProfessor;
+    }
+
+    public void setNomeProfessor(String nomeProfessor) {
+        this.nomeProfessor = nomeProfessor;
     }
 }

@@ -220,46 +220,76 @@ public class MainActivity extends AppCompatActivity {
                     filtro.setPeriodo(periodo);
                     filtro.setDia_semana(1);
                     filtro.setTurma((int)  id);
-                    pegarAula(filtro, s1);
-                    pegarAula(filtro, s2);
-                    pegarAula(filtro, s3);
-                    pegarAula(filtro, s4);
-                    pegarAula(filtro, s5);
+                    filtro.setHorario(0);
+                    pegarAulaTurma(filtro, s1);
+                    filtro.setHorario(1);
+                    pegarAulaTurma(filtro, s2);
+                    filtro.setHorario(2);
+                    pegarAulaTurma(filtro, s3);
+                    filtro.setHorario(3);
+                    pegarAulaTurma(filtro, s4);
+                    filtro.setHorario(4);
+                    pegarAulaTurma(filtro, s5);
 
                     filtro.setDia_semana(2);
-                    pegarAula(filtro, t1);
-                    pegarAula(filtro, t2);
-                    pegarAula(filtro, t3);
-                    pegarAula(filtro, t4);
-                    pegarAula(filtro, t5);
+                    filtro.setHorario(0);
+                    pegarAulaTurma(filtro, t1);
+                    filtro.setHorario(1);
+                    pegarAulaTurma(filtro, t2);
+                    filtro.setHorario(2);
+                    pegarAulaTurma(filtro, t3);
+                    filtro.setHorario(3);
+                    pegarAulaTurma(filtro, t4);
+                    filtro.setHorario(4);
+                    pegarAulaTurma(filtro, t5);
 
                     filtro.setDia_semana(3);
-                    pegarAula(filtro, q1);
-                    pegarAula(filtro, q2);
-                    pegarAula(filtro, q3);
-                    pegarAula(filtro, q4);
-                    pegarAula(filtro, q5);
+                    filtro.setHorario(0);
+                    pegarAulaTurma(filtro, q1);
+                    filtro.setHorario(1);
+                    pegarAulaTurma(filtro, q2);
+                    filtro.setHorario(2);
+                    pegarAulaTurma(filtro, q3);
+                    filtro.setHorario(3);
+                    pegarAulaTurma(filtro, q4);
+                    filtro.setHorario(4);
+                    pegarAulaTurma(filtro, q5);
 
                     filtro.setDia_semana(4);
-                    pegarAula(filtro, qi1);
-                    pegarAula(filtro, qi2);
-                    pegarAula(filtro, qi3);
-                    pegarAula(filtro, qi4);
-                    pegarAula(filtro, qi5);
+                    filtro.setHorario(0);
+                    pegarAulaTurma(filtro, qi1);
+                    filtro.setHorario(1);
+                    pegarAulaTurma(filtro, qi2);
+                    filtro.setHorario(2);
+                    pegarAulaTurma(filtro, qi3);
+                    filtro.setHorario(3);
+                    pegarAulaTurma(filtro, qi4);
+                    filtro.setHorario(4);
+                    pegarAulaTurma(filtro, qi5);
 
                     filtro.setDia_semana(5);
-                    pegarAula(filtro, sx1);
-                    pegarAula(filtro, sx2);
-                    pegarAula(filtro, sx3);
-                    pegarAula(filtro, sx4);
-                    pegarAula(filtro, sx5);
+                    filtro.setHorario(0);
+                    pegarAulaTurma(filtro, sx1);
+                    filtro.setHorario(1);
+                    pegarAulaTurma(filtro, sx2);
+                    filtro.setHorario(2);
+                    pegarAulaTurma(filtro, sx3);
+                    filtro.setHorario(3);
+                    pegarAulaTurma(filtro, sx4);
+                    filtro.setHorario(4);
+                    pegarAulaTurma(filtro, sx5);
 
                     filtro.setDia_semana(6);
-                    pegarAula(filtro, sa1);
-                    pegarAula(filtro, sa2);
-                    pegarAula(filtro, sa3);
-                    pegarAula(filtro, sa4);
-                    pegarAula(filtro, sa5);
+                    filtro.setHorario(0);
+                    pegarAulaTurma(filtro, sa1);
+                    filtro.setHorario(1);
+                    pegarAulaTurma(filtro, sa2);
+                    filtro.setHorario(2);
+                    pegarAulaTurma(filtro, sa3);
+                    filtro.setHorario(3);
+                    pegarAulaTurma(filtro, sa4);
+                    filtro.setHorario(4);
+                    pegarAulaTurma(filtro, sa5);
 
                 }else if(periodo != null){
                     spinnerProf.setEnabled(true);
@@ -285,45 +315,75 @@ public class MainActivity extends AppCompatActivity {
                     filtro.setPeriodo(periodo);
                     filtro.setDia_semana(1);
                     filtro.setColaborador((int) id);
+                    filtro.setHorario(0);
                     pegarAula(filtro, s1);
+                    filtro.setHorario(1);
                     pegarAula(filtro, s2);
+                    filtro.setHorario(2);
                     pegarAula(filtro, s3);
+                    filtro.setHorario(3);
                     pegarAula(filtro, s4);
+                    filtro.setHorario(4);
                     pegarAula(filtro, s5);
 
                     filtro.setDia_semana(2);
+                    filtro.setHorario(0);
                     pegarAula(filtro, t1);
+                    filtro.setHorario(1);
                     pegarAula(filtro, t2);
+                    filtro.setHorario(2);
                     pegarAula(filtro, t3);
+                    filtro.setHorario(3);
                     pegarAula(filtro, t4);
+                    filtro.setHorario(4);
                     pegarAula(filtro, t5);
 
                     filtro.setDia_semana(3);
+                    filtro.setHorario(0);
                     pegarAula(filtro, q1);
+                    filtro.setHorario(1);
                     pegarAula(filtro, q2);
+                    filtro.setHorario(2);
                     pegarAula(filtro, q3);
+                    filtro.setHorario(3);
                     pegarAula(filtro, q4);
+                    filtro.setHorario(4);
                     pegarAula(filtro, q5);
 
                     filtro.setDia_semana(4);
+                    filtro.setHorario(0);
                     pegarAula(filtro, qi1);
+                    filtro.setHorario(1);
                     pegarAula(filtro, qi2);
+                    filtro.setHorario(2);
                     pegarAula(filtro, qi3);
+                    filtro.setHorario(3);
                     pegarAula(filtro, qi4);
+                    filtro.setHorario(4);
                     pegarAula(filtro, qi5);
 
                     filtro.setDia_semana(5);
+                    filtro.setHorario(0);
                     pegarAula(filtro, sx1);
+                    filtro.setHorario(1);
                     pegarAula(filtro, sx2);
+                    filtro.setHorario(2);
                     pegarAula(filtro, sx3);
+                    filtro.setHorario(3);
                     pegarAula(filtro, sx4);
+                    filtro.setHorario(4);
                     pegarAula(filtro, sx5);
 
                     filtro.setDia_semana(6);
+                    filtro.setHorario(0);
                     pegarAula(filtro, sa1);
+                    filtro.setHorario(1);
                     pegarAula(filtro, sa2);
+                    filtro.setHorario(2);
                     pegarAula(filtro, sa3);
+                    filtro.setHorario(3);
                     pegarAula(filtro, sa4);
+                    filtro.setHorario(4);
                     pegarAula(filtro, sa5);
                 }else if(periodo != null){
                     spinnerTurma.setEnabled(true);
@@ -435,7 +495,8 @@ public class MainActivity extends AppCompatActivity {
                     Aula a = response.body();
 
                     if (a != null){
-                        textView.setText(Utils.abrevia(a.getNomeDisciplina())+ " \n Sala " + a.getId_sala());
+                        textView.setText(Utils.abrevia(a.getNomeDisciplina())+ " \n Sala " + a.getId_sala()
+                         + " \n " + Utils.abrevia(a.getNomeProfessor()));
                     }
 
                 }

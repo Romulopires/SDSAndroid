@@ -6,6 +6,7 @@ public class Filtro {
     private Integer dia_semana;
     private Integer periodo;
     private Integer turma;
+    private Integer horario;
 
 
     public Filtro() {
@@ -42,5 +43,11 @@ public class Filtro {
         this.turma = turma;
     }
 
+    public Integer getHorario() {
+        return horario;
+    }
 
+    public void setHorario(Integer horario) {
+        this.horario = horario;
+    }
 }
