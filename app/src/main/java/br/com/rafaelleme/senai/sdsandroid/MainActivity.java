@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.rafaelleme.senai.sdsandroid.Util.RetrofitInstance;
+import br.com.rafaelleme.senai.sdsandroid.Util.Utils;
 import br.com.rafaelleme.senai.sdsandroid.entities.Aula;
 import br.com.rafaelleme.senai.sdsandroid.entities.ClasseGenerica;
 import br.com.rafaelleme.senai.sdsandroid.entities.ClasseTurma;
@@ -189,16 +190,20 @@ public class MainActivity extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.rdManha:
                         periodo = 1;
-
-                        spinnerTurma.setEnabled(false);
+                        spinnerTurma.setSelection(0);
+                        spinnerProf.setSelection(0);
                         break;
 
                     case R.id.rdTarde:
                         periodo = 2;
+                        spinnerTurma.setSelection(0);
+                        spinnerProf.setSelection(0);
                         break;
 
                     case R.id.rdNoite:
                         periodo = 3;
+                        spinnerTurma.setSelection(0);
+                        spinnerProf.setSelection(0);
                         break;
                 }
             }
@@ -208,8 +213,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                ClasseGenerica cg = (ClasseGenerica) spinnerTurma.getSelectedItem();
-                Log.i("Teste", cg.getId().toString());
+                limpar(tb);
+                spinnerProf.setEnabled(false);
+                if(periodo != null && id != 0){
+
+                }else if(periodo != null){
+                    spinnerProf.setEnabled(true);
+                }
+
+                //ClasseGenerica cg = (ClasseGenerica) spinnerTurma.getSelectedItem();
             }
 
             @Override
@@ -222,50 +234,56 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 limpar(tb);
-                Filtro filtro = new Filtro();
-                filtro.setPeriodo(periodo);
-                filtro.setDia_semana(1);
-                filtro.setColaborador((int) id);
-                pegarAula(filtro, s1);
-                pegarAula(filtro, s2);
-                pegarAula(filtro, s3);
-                pegarAula(filtro, s4);
-                pegarAula(filtro, s5);
+                spinnerTurma.setEnabled(false);
 
-                filtro.setDia_semana(2);
-                pegarAula(filtro, t1);
-                pegarAula(filtro, t2);
-                pegarAula(filtro, t3);
-                pegarAula(filtro, t4);
-                pegarAula(filtro, t5);
+                if (periodo != null && id != 0) {
+                    Filtro filtro = new Filtro();
+                    filtro.setPeriodo(periodo);
+                    filtro.setDia_semana(1);
+                    filtro.setColaborador((int) id);
+                    pegarAula(filtro, s1);
+                    pegarAula(filtro, s2);
+                    pegarAula(filtro, s3);
+                    pegarAula(filtro, s4);
+                    pegarAula(filtro, s5);
 
-                filtro.setDia_semana(3);
-                pegarAula(filtro, q1);
-                pegarAula(filtro, q2);
-                pegarAula(filtro, q3);
-                pegarAula(filtro, q4);
-                pegarAula(filtro, q5);
+                    filtro.setDia_semana(2);
+                    pegarAula(filtro, t1);
+                    pegarAula(filtro, t2);
+                    pegarAula(filtro, t3);
+                    pegarAula(filtro, t4);
+                    pegarAula(filtro, t5);
 
-                filtro.setDia_semana(4);
-                pegarAula(filtro, qi1);
-                pegarAula(filtro, qi2);
-                pegarAula(filtro, qi3);
-                pegarAula(filtro, qi4);
-                pegarAula(filtro, qi5);
+                    filtro.setDia_semana(3);
+                    pegarAula(filtro, q1);
+                    pegarAula(filtro, q2);
+                    pegarAula(filtro, q3);
+                    pegarAula(filtro, q4);
+                    pegarAula(filtro, q5);
 
-                filtro.setDia_semana(5);
-                pegarAula(filtro, sx1);
-                pegarAula(filtro, sx2);
-                pegarAula(filtro, sx3);
-                pegarAula(filtro, sx4);
-                pegarAula(filtro, sx5);
+                    filtro.setDia_semana(4);
+                    pegarAula(filtro, qi1);
+                    pegarAula(filtro, qi2);
+                    pegarAula(filtro, qi3);
+                    pegarAula(filtro, qi4);
+                    pegarAula(filtro, qi5);
 
-                filtro.setDia_semana(6);
-                pegarAula(filtro, sa1);
-                pegarAula(filtro, sa2);
-                pegarAula(filtro, sa3);
-                pegarAula(filtro, sa4);
-                pegarAula(filtro, sa5);
+                    filtro.setDia_semana(5);
+                    pegarAula(filtro, sx1);
+                    pegarAula(filtro, sx2);
+                    pegarAula(filtro, sx3);
+                    pegarAula(filtro, sx4);
+                    pegarAula(filtro, sx5);
+
+                    filtro.setDia_semana(6);
+                    pegarAula(filtro, sa1);
+                    pegarAula(filtro, sa2);
+                    pegarAula(filtro, sa3);
+                    pegarAula(filtro, sa4);
+                    pegarAula(filtro, sa5);
+                }else if(periodo != null){
+                    spinnerTurma.setEnabled(true);
+                }
             }
 
             @Override
@@ -343,7 +361,8 @@ public class MainActivity extends AppCompatActivity {
                     Aula a = response.body();
 
                     if (a != null) {
-                        textView.setText(a.getNomeDisciplina());
+                        textView.setText(Utils.abrevia(a.getNomeDisciplina())+ " \n Sala " + a.getId_sala()
+                            + " \n " + a.getNomeTurma().toUpperCase());
                     }
                 } else {
                     mens("Não conectamos ao serviço, tente novamente !");
