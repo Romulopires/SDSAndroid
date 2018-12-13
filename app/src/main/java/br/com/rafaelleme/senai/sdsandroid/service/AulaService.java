@@ -10,4 +10,7 @@ public interface AulaService {
 
     @POST("aula/por-filtro")
     Call<Aula> buscaAula(@Body Filtro filtro);
+
+    @POST("aula/por-turma")
+    Call<Aula> buscaAulaTurma(@Body Filtro filtro);
 }
